@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure Flask Practice App</title>
+    <style>
+        :root {
+            --bg-1: #f2f8ff;
+            --bg-2: #d8ebff;
+            --card: #ffffff;
+            --ink: #1b2430;
+            --accent: #0078d4;
+            --accent-2: #005ea6;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--ink);
+            background: radial-gradient(circle at 20% 20%, var(--bg-2), var(--bg-1) 45%, #fdfefe 100%);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .card {
+            width: min(680px, 100%);
+            background: var(--card);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0, 48, 87, 0.12);
+            border: 1px solid #d7e8fb;
+            animation: fade-up .5s ease;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+        }
+
+        p {
+            margin: 0 0 16px;
+            line-height: 1.6;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f4ff;
+            color: #084b83;
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            margin-bottom: 16px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2ea043;
+            box-shadow: 0 0 0 5px rgba(46, 160, 67, 0.15);
+        }
+
+        .actions {
+            margin-top: 8px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 10px 14px;
+            transition: transform .15s ease, opacity .15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #edf5ff;
+            color: var(--accent-2);
+            border: 1px solid #cfe5ff;
+        }
+
+        a:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <div class="status"><span class="dot"></span> App is running</div>
+        <h1>Flask App Service Practice</h1>
+        <p>
+            This is a minimal Flask app with no database. Deploy this project to Azure App Service
+            to practice build and release flow.
+        </p>
+        <div class="actions">
+            <a class="btn-primary" href="/health">Open Health Endpoint</a>
+            <a class="btn-secondary" href="https://learn.microsoft.com/azure/app-service/quickstart-python"
+                target="_blank" rel="noreferrer">App Service Python Quickstart</a>
+        </div>
+    </main>
+</body>
+
+</html>
